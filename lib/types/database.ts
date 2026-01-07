@@ -39,3 +39,16 @@ export interface GalleryImage {
   display_order: number
   created_at: string
 }
+
+export interface Post {
+  id: string
+  title: string
+  slug: string
+  excerpt?: string
+  content: string
+  cover_image?: string
+  is_published: boolean
+  published_at?: string
+  created_at: string
+  updated_at: string
+}

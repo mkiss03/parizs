@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, MapPin, FileText, Image } from 'lucide-react'
+import { LayoutDashboard, MapPin, FileText, Image, PenTool } from 'lucide-react'
 
 const navItems = [
   {
@@ -14,6 +14,11 @@ const navItems = [
     title: 'Túrák kezelése',
     href: '/admin/tours',
     icon: MapPin,
+  },
+  {
+    title: 'Blog',
+    href: '/admin/blog',
+    icon: PenTool,
   },
   {
     title: 'Tartalom',

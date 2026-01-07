@@ -3,10 +3,11 @@ import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/sections/HeroSection'
 import AboutSection from '@/components/sections/AboutSection'
 import ToursSection from '@/components/sections/ToursSection'
+import BlogSection from '@/components/sections/BlogSection'
 import ContactSection from '@/components/sections/ContactSection'
 import Footer from '@/components/Footer'
 import WhatsAppFAB from '@/components/WhatsAppFAB'
-import type { Tour, Profile } from '@/lib/types/database'
+import type { Tour, Profile, Post } from '@/lib/types/database'
 
 export const revalidate = 60 // Revalidate every 60 seconds
 
@@ -20,8 +21,17 @@ export default async function Home() {
     .select('*')
     .order('display_order')
 
+  // Fetch latest 3 published blog posts
+  const { data: posts } = await supabase
+    .from('posts')
+    .select('*')
+    .eq('is_published', true)
+    .order('published_at', { ascending: false })
+    .limit(3)
+
   const profileData = profile as Profile | null
   const toursData = (tours as Tour[]) || []
+  const postsData = (posts as Post[]) || []
 
   return (
     <main className="relative">
@@ -38,6 +48,7 @@ export default async function Home() {
         image={profileData?.about_image}
       />
       <ToursSection tours={toursData} />
+      <BlogSection posts={postsData} />
       <ContactSection
         email={profileData?.contact_email}
         phone={profileData?.contact_phone}

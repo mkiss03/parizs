@@ -1,16 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Facebook, Instagram, Linkedin, Heart } from 'lucide-react'
+import { Facebook, Heart, Mail, Phone } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  ]
 
   return (
     <footer className="relative overflow-hidden bg-navy-500 py-12 text-white">
@@ -56,30 +50,46 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Social & Contact */}
+          {/* Contact & Social */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="mb-4 font-playfair text-xl font-semibold">Kövess minket</h4>
+            <h4 className="mb-4 font-playfair text-xl font-semibold">Kapcsolat</h4>
+
+            {/* Contact Info */}
+            <div className="mb-6 space-y-3">
+              <a
+                href="tel:+33612345678"
+                className="flex items-center gap-3 text-champagne-200 transition-colors hover:text-gold-400"
+              >
+                <Phone className="h-5 w-5" />
+                <span>+33 6 12 34 56 78</span>
+              </a>
+              <a
+                href="mailto:viktoria@parizstourist.com"
+                className="flex items-center gap-3 text-champagne-200 transition-colors hover:text-gold-400"
+              >
+                <Mail className="h-5 w-5" />
+                <span>viktoria@parizstourist.com</span>
+              </a>
+            </div>
+
+            {/* Facebook */}
             <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon
-                return (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-champagne-300/10 backdrop-blur-sm transition-all hover:bg-gold-400"
-                    aria-label={social.label}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </motion.a>
-                )
-              })}
+              <motion.a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-champagne-300/10 backdrop-blur-sm transition-all hover:bg-gold-400"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </motion.a>
             </div>
           </motion.div>
         </div>
