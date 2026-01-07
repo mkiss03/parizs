@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { QueryProvider } from "@/lib/providers/query-provider";
 
 export const metadata: Metadata = {
   title: "Viktória Szeidl - Párizsi Idegenvezetés",
@@ -28,7 +29,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-montserrat antialiased">
-        {children}
+        <QueryProvider>
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );

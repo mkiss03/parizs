@@ -3,16 +3,7 @@
 import { motion } from 'framer-motion'
 import { Clock, Users, Euro, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-
-interface Tour {
-  title: string
-  shortDescription: string
-  image: string
-  price: number
-  duration: number
-  maxGroupSize: number
-  featured?: boolean
-}
+import type { Tour } from '@/lib/types/database'
 
 interface ToursSectionProps {
   tours?: Tour[]
@@ -20,38 +11,64 @@ interface ToursSectionProps {
 
 const defaultTours: Tour[] = [
   {
+    id: '1',
     title: 'Klasszikus Párizs',
-    shortDescription: 'Fedezze fel Párizs legismertebb nevezetességeit egyetlen varázslatos túra során.',
-    image: '/images/tour-classic.jpg',
+    slug: 'klasszikus-parizs',
+    short_description: 'Fedezze fel Párizs legismertebb nevezetességeit egyetlen varázslatos túra során.',
+    full_description: '',
+    image_url: '/images/tour-classic.jpg',
     price: 150,
     duration: 3,
-    maxGroupSize: 8,
-    featured: true,
+    max_group_size: 8,
+    is_featured: true,
+    display_order: 1,
+    created_at: '',
+    updated_at: '',
   },
   {
+    id: '2',
     title: 'Montmartre Művészei',
-    shortDescription: 'Sétáljon a művészek negyedében, ahol Picasso és Van Gogh is alkotott.',
-    image: '/images/tour-montmartre.jpg',
+    slug: 'montmartre-muveszei',
+    short_description: 'Sétáljon a művészek negyedében, ahol Picasso és Van Gogh is alkotott.',
+    full_description: '',
+    image_url: '/images/tour-montmartre.jpg',
     price: 120,
     duration: 2.5,
-    maxGroupSize: 10,
+    max_group_size: 10,
+    is_featured: false,
+    display_order: 2,
+    created_at: '',
+    updated_at: '',
   },
   {
+    id: '3',
     title: 'Gasztronómiai Kaland',
-    shortDescription: 'Kóstolja meg Párizs legjobb ételeit és borait egy autentikus túrán.',
-    image: '/images/tour-food.jpg',
+    slug: 'gasztro-kaland',
+    short_description: 'Kóstolja meg Párizs legjobb ételeit és borait egy autentikus túrán.',
+    full_description: '',
+    image_url: '/images/tour-food.jpg',
     price: 180,
     duration: 4,
-    maxGroupSize: 6,
-    featured: true,
+    max_group_size: 6,
+    is_featured: true,
+    display_order: 3,
+    created_at: '',
+    updated_at: '',
   },
   {
+    id: '4',
     title: 'Rejtett Párizs',
-    shortDescription: 'Fedezze fel a turistautakról távol eső, varázslatos zugokat és helyi titkokat.',
-    image: '/images/tour-hidden.jpg',
+    slug: 'rejtett-parizs',
+    short_description: 'Fedezze fel a turistautakról távol eső, varázslatos zugokat és helyi titkokat.',
+    full_description: '',
+    image_url: '/images/tour-hidden.jpg',
     price: 140,
     duration: 3,
-    maxGroupSize: 8,
+    max_group_size: 8,
+    is_featured: false,
+    display_order: 4,
+    created_at: '',
+    updated_at: '',
   },
 ]
 
@@ -105,9 +122,9 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
           viewport={{ once: true, margin: '-100px' }}
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-2"
         >
-          {tours.map((tour, index) => (
+          {tours.map((tour) => (
             <motion.div
-              key={index}
+              key={tour.id}
               variants={itemVariants}
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative overflow-hidden rounded-3xl transition-all duration-500"
@@ -115,7 +132,7 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
               {/* Glassmorphism Card */}
               <div className="glass-strong relative h-full overflow-hidden rounded-3xl p-6 shadow-xl transition-all duration-500 hover:shadow-2xl">
                 {/* Featured Badge */}
-                {tour.featured && (
+                {tour.is_featured && (
                   <div className="absolute right-4 top-4 z-10 rounded-full bg-gold-400 px-4 py-1 text-xs font-bold text-navy-500">
                     KIEMELT
                   </div>
@@ -124,7 +141,7 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
                 {/* Tour Image */}
                 <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-2xl">
                   <Image
-                    src={tour.image}
+                    src={tour.image_url || '/images/tour-classic.jpg'}
                     alt={tour.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -136,7 +153,7 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
                 <h3 className="mb-3 font-playfair text-2xl font-bold text-navy-500 md:text-3xl">
                   {tour.title}
                 </h3>
-                <p className="mb-6 text-navy-400">{tour.shortDescription}</p>
+                <p className="mb-6 text-navy-400">{tour.short_description}</p>
 
                 {/* Tour Details */}
                 <div className="mb-6 flex flex-wrap gap-4">
@@ -146,7 +163,7 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
                   </div>
                   <div className="flex items-center gap-2 text-sm text-navy-400">
                     <Users className="h-5 w-5 text-gold-400" />
-                    <span>Max. {tour.maxGroupSize} fő</span>
+                    <span>Max. {tour.max_group_size} fő</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm font-semibold text-gold-500">
                     <Euro className="h-5 w-5" />
