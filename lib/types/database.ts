@@ -83,7 +83,7 @@ export interface Subscriber {
 }
 
 // ============================================
-// MARKETPLACE TYPES
+// MARKETPLACE TYPES (City Pass Model)
 // ============================================
 
 export interface Bundle {
@@ -93,7 +93,6 @@ export interface Bundle {
   description?: string
   short_description?: string
   cover_image?: string
-  price: number
   city: string
   category?: string
   author_id: string
@@ -101,6 +100,8 @@ export interface Bundle {
   total_cards: number
   total_sales: number
   rating: number
+  difficulty_level?: 'beginner' | 'intermediate' | 'advanced'
+  estimated_time_minutes: number
   created_at: string
   updated_at: string
 }
@@ -117,11 +118,23 @@ export interface Flashcard {
   updated_at: string
 }
 
+export interface CityPricing {
+  city: string
+  price: number
+  duration_days: number
+  currency: string
+  is_active: boolean
+  description?: string
+  created_at: string
+  updated_at: string
+}
+
 export interface Order {
   id: string
   order_number: string
   user_id: string
-  bundle_id: string
+  bundle_id?: string | null
+  city?: string
   vendor_id: string
   amount: number
   commission_amount: number
@@ -134,9 +147,19 @@ export interface Order {
 export interface UserPurchase {
   id: string
   user_id: string
-  bundle_id: string
+  city: string
   order_id: string
   purchased_at: string
+  expires_at: string
+  is_active: boolean
+}
+
+export interface CityPass {
+  city: string
+  purchased_at: string
+  expires_at: string
+  days_remaining: number
+  is_expired: boolean
 }
 
 export interface VendorStats {
@@ -145,6 +168,7 @@ export interface VendorStats {
   total_sales: number
   total_revenue: number
   total_cards: number
+  cities_covered: string[]
 }
 
 export interface GlobalStats {

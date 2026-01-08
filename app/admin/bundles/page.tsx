@@ -15,7 +15,6 @@ import {
   Eye,
   EyeOff,
   Package,
-  DollarSign,
   MapPin,
   Layers,
   Save,
@@ -37,9 +36,10 @@ export default function BundlesAdminPage() {
     description: '',
     short_description: '',
     cover_image: '',
-    price: 0,
     city: '',
     category: '',
+    difficulty_level: '' as 'beginner' | 'intermediate' | 'advanced' | '',
+    estimated_time_minutes: 10,
   })
 
   // Fetch bundles based on role
@@ -133,9 +133,10 @@ export default function BundlesAdminPage() {
       description: '',
       short_description: '',
       cover_image: '',
-      price: 0,
       city: '',
       category: '',
+      difficulty_level: '' as 'beginner' | 'intermediate' | 'advanced' | '',
+      estimated_time_minutes: 10,
     })
   }
 
@@ -147,9 +148,10 @@ export default function BundlesAdminPage() {
       description: bundle.description || '',
       short_description: bundle.short_description || '',
       cover_image: bundle.cover_image || '',
-      price: bundle.price,
       city: bundle.city,
       category: bundle.category || '',
+      difficulty_level: (bundle.difficulty_level || '') as 'beginner' | 'intermediate' | 'advanced' | '',
+      estimated_time_minutes: bundle.estimated_time_minutes || 10,
     })
   }
 
@@ -274,19 +276,6 @@ export default function BundlesAdminPage() {
 
               <div>
                 <label className="mb-1 block text-sm font-medium text-slate-700">
-                  Ár (€) *
-                </label>
-                <Input
-                  type="number"
-                  step="0.01"
-                  value={formData.price}
-                  onChange={(e) => setFormData(prev => ({ ...prev, price: parseFloat(e.target.value) }))}
-                  placeholder="9.99"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-slate-700">
                   Város *
                 </label>
                 <Input
@@ -304,6 +293,34 @@ export default function BundlesAdminPage() {
                   value={formData.category}
                   onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
                   placeholder="Transport, Food, Culture, etc."
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">
+                  Nehézségi szint
+                </label>
+                <select
+                  value={formData.difficulty_level}
+                  onChange={(e) => setFormData(prev => ({ ...prev, difficulty_level: e.target.value as 'beginner' | 'intermediate' | 'advanced' | '' }))}
+                  className="flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm"
+                >
+                  <option value="">Válassz...</option>
+                  <option value="beginner">Kezdő</option>
+                  <option value="intermediate">Középhaladó</option>
+                  <option value="advanced">Haladó</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">
+                  Becsült idő (perc)
+                </label>
+                <Input
+                  type="number"
+                  value={formData.estimated_time_minutes}
+                  onChange={(e) => setFormData(prev => ({ ...prev, estimated_time_minutes: parseInt(e.target.value) || 10 }))}
+                  placeholder="10"
                 />
               </div>
 
@@ -382,13 +399,16 @@ export default function BundlesAdminPage() {
                       {bundle.city}
                     </span>
                     <span className="flex items-center gap-1">
-                      <DollarSign className="h-3 w-3" />
-                      €{bundle.price.toFixed(2)}
-                    </span>
-                    <span className="flex items-center gap-1">
                       <Layers className="h-3 w-3" />
                       {bundle.total_cards} kártya
                     </span>
+                    {bundle.difficulty_level && (
+                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium">
+                        {bundle.difficulty_level === 'beginner' && 'Kezdő'}
+                        {bundle.difficulty_level === 'intermediate' && 'Középhaladó'}
+                        {bundle.difficulty_level === 'advanced' && 'Haladó'}
+                      </span>
+                    )}
                   </div>
                 </div>
 

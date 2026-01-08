@@ -11,7 +11,8 @@ import {
   Compass,
   Mail,
   Package,
-  ShoppingCart
+  ShoppingCart,
+  DollarSign
 } from 'lucide-react'
 
 const navItems = [
@@ -29,6 +30,11 @@ const navItems = [
     title: 'Rendelések',
     href: '/admin/orders',
     icon: ShoppingCart,
+  },
+  {
+    title: 'Városi Árazás',
+    href: '/admin/pricing',
+    icon: DollarSign,
   },
   {
     title: 'Túrák kezelése',
