@@ -2,13 +2,33 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, MapPin, FileText, Image, PenTool, Compass, Mail } from 'lucide-react'
+import {
+  LayoutDashboard,
+  MapPin,
+  FileText,
+  Image,
+  PenTool,
+  Compass,
+  Mail,
+  Package,
+  ShoppingCart
+} from 'lucide-react'
 
 const navItems = [
   {
     title: 'Áttekintés',
     href: '/admin/dashboard',
     icon: LayoutDashboard,
+  },
+  {
+    title: 'Csomagok',
+    href: '/admin/bundles',
+    icon: Package,
+  },
+  {
+    title: 'Rendelések',
+    href: '/admin/orders',
+    icon: ShoppingCart,
   },
   {
     title: 'Túrák kezelése',
