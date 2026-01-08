@@ -52,3 +52,25 @@ export interface Post {
   created_at: string
   updated_at: string
 }
+
+export interface DiscoverItem {
+  id: string
+  title: string
+  description?: string
+  image_url?: string
+  link_url?: string
+  category?: string
+  sort_order: number
+  is_published: boolean
+  created_at: string
+  updated_at: string
+}
+
+export interface Subscriber {
+  id: string
+  email: string
+  subscribed_at: string
+  is_active: boolean
+  unsubscribed_at?: string
+  created_at: string
+}

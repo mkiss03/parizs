@@ -3,11 +3,13 @@ import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/sections/HeroSection'
 import AboutSection from '@/components/sections/AboutSection'
 import ToursSection from '@/components/sections/ToursSection'
+import DiscoverSection from '@/components/sections/DiscoverSection'
 import BlogSection from '@/components/sections/BlogSection'
+import NewsletterSection from '@/components/sections/NewsletterSection'
 import ContactSection from '@/components/sections/ContactSection'
 import Footer from '@/components/Footer'
 import WhatsAppFAB from '@/components/WhatsAppFAB'
-import type { Tour, Profile, Post } from '@/lib/types/database'
+import type { Tour, Profile, Post, DiscoverItem } from '@/lib/types/database'
 
 export const revalidate = 60 // Revalidate every 60 seconds
 
@@ -29,9 +31,19 @@ export default async function Home() {
     .order('published_at', { ascending: false })
     .limit(3)
 
+  // Fetch discover items (first 6 for homepage)
+  const { data: discoverItems } = await supabase
+    .from('discover_items')
+    .select('*')
+    .eq('is_published', true)
+    .order('sort_order', { ascending: true })
+    .order('created_at', { ascending: false })
+    .limit(6)
+
   const profileData = profile as Profile | null
   const toursData = (tours as Tour[]) || []
   const postsData = (posts as Post[]) || []
+  const discoverData = (discoverItems as DiscoverItem[]) || []
 
   return (
     <main className="relative">
@@ -48,11 +60,13 @@ export default async function Home() {
         image={profileData?.about_image}
       />
       <ToursSection tours={toursData} />
+      <DiscoverSection items={discoverData} />
       <BlogSection posts={postsData} />
       <ContactSection
         email={profileData?.contact_email}
         phone={profileData?.contact_phone}
       />
+      <NewsletterSection />
       <Footer />
       <WhatsAppFAB phoneNumber={profileData?.contact_whatsapp} />
     </main>

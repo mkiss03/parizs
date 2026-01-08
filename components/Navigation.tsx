@@ -11,7 +11,7 @@ export default function Navigation() {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(245, 245, 220, 0)', 'rgba(245, 245, 220, 0.95)']
+    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.98)']
   )
 
   useEffect(() => {
@@ -26,6 +26,8 @@ export default function Navigation() {
     { name: 'Kezdőlap', href: '#' },
     { name: 'Rólam', href: '#about' },
     { name: 'Túrák', href: '#tours' },
+    { name: 'Felfedezés', href: '/discover' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Kapcsolat', href: '#contact' },
   ]
 
@@ -45,9 +47,9 @@ export default function Navigation() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="font-playfair text-2xl font-bold text-navy-500 md:text-3xl"
+              className="font-playfair text-2xl font-bold text-french-blue-500 md:text-3xl"
             >
-              Viktória <span className="text-gold-400">Paris</span>
+              Viktória <span className="text-french-red-500">Paris</span>
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -65,11 +67,11 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="relative font-montserrat font-medium text-navy-500 transition-colors hover:text-gold-500"
+                  className="relative font-montserrat font-medium text-french-blue-500 transition-colors hover:text-french-red-500"
                 >
                   {item.name}
                   <motion.span
-                    className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gold-400 transition-all duration-300 hover:w-full"
+                    className="absolute -bottom-1 left-0 h-0.5 w-0 bg-french-red-500 transition-all duration-300 hover:w-full"
                     whileHover={{ width: '100%' }}
                   />
                 </motion.a>
@@ -78,7 +80,7 @@ export default function Navigation() {
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="rounded-full bg-gold-400 px-6 py-2 font-semibold text-navy-500 transition-all duration-300 hover:bg-gold-500"
+                className="rounded-full bg-french-red-500 px-6 py-2 font-semibold text-white transition-all duration-300 hover:bg-french-red-600"
               >
                 Foglalás
               </motion.a>
@@ -94,9 +96,9 @@ export default function Navigation() {
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <X className="h-8 w-8 text-navy-500" />
+                <X className="h-8 w-8 text-french-blue-500" />
               ) : (
-                <Menu className="h-8 w-8 text-navy-500" />
+                <Menu className="h-8 w-8 text-french-blue-500" />
               )}
             </motion.button>
           </div>
@@ -111,7 +113,7 @@ export default function Navigation() {
           x: isOpen ? 0 : '100%',
         }}
         transition={{ duration: 0.3 }}
-        className={`fixed right-0 top-20 z-30 h-screen w-full bg-champagne-300/95 backdrop-blur-lg md:hidden ${
+        className={`fixed right-0 top-20 z-30 h-screen w-full bg-white/98 backdrop-blur-lg shadow-xl md:hidden ${
           isOpen ? 'pointer-events-auto' : 'pointer-events-none'
         }`}
       >
@@ -127,7 +129,7 @@ export default function Navigation() {
               }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-semibold text-navy-500"
+              className="text-2xl font-semibold text-french-blue-500"
             >
               {item.name}
             </motion.a>
@@ -141,7 +143,7 @@ export default function Navigation() {
             }}
             transition={{ duration: 0.3, delay: 0.4 }}
             onClick={() => setIsOpen(false)}
-            className="rounded-full bg-gold-400 px-8 py-3 text-xl font-semibold text-navy-500"
+            className="rounded-full bg-french-red-500 px-8 py-3 text-xl font-semibold text-white"
           >
             Foglalás
           </motion.a>
