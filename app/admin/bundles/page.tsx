@@ -42,6 +42,19 @@ export default function BundlesAdminPage() {
     estimated_time_minutes: 10,
   })
 
+  // Fetch available cities from city_pricing
+  const { data: availableCities } = useQuery({
+    queryKey: ['city-pricing'],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from('city_pricing')
+        .select('city, is_active')
+        .eq('is_active', true)
+        .order('city', { ascending: true })
+      return data?.map(c => c.city) || []
+    },
+  })
+
   // Fetch bundles based on role
   const { data: bundles, isLoading } = useQuery({
     queryKey: ['bundles', userId, role],
@@ -278,11 +291,21 @@ export default function BundlesAdminPage() {
                 <label className="mb-1 block text-sm font-medium text-slate-700">
                   Város *
                 </label>
-                <Input
+                <select
                   value={formData.city}
                   onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
-                  placeholder="Paris"
-                />
+                  className="flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-french-blue-500"
+                >
+                  <option value="">Válassz várost...</option>
+                  {availableCities?.map((city) => (
+                    <option key={city} value={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
+                <p className="mt-1 text-xs text-slate-500">
+                  A városi árazásból származó lista. Új város hozzáadásához menj a Városi Árazás oldalra.
+                </p>
               </div>
 
               <div>
@@ -371,21 +394,19 @@ export default function BundlesAdminPage() {
               className="overflow-hidden border-slate-200 transition-shadow hover:shadow-lg"
             >
               {/* Cover Image */}
-              {bundle.cover_image && (
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={bundle.cover_image}
-                    alt={bundle.title}
-                    fill
-                    className="object-cover"
-                  />
-                  {!bundle.is_published && (
-                    <div className="absolute right-2 top-2 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-white">
-                      Vázlat
-                    </div>
-                  )}
-                </div>
-              )}
+              <div className="relative h-48 w-full bg-slate-100">
+                <Image
+                  src={bundle.cover_image || '/images/bundle-fallback.jpg'}
+                  alt={bundle.title}
+                  fill
+                  className="object-cover"
+                />
+                {!bundle.is_published && (
+                  <div className="absolute right-2 top-2 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-white">
+                    Vázlat
+                  </div>
+                )}
+              </div>
 
               <CardContent className="p-4">
                 {/* Title & Stats */}

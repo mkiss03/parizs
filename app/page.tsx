@@ -3,13 +3,14 @@ import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/sections/HeroSection'
 import AboutSection from '@/components/sections/AboutSection'
 import ToursSection from '@/components/sections/ToursSection'
+import BundlesSection from '@/components/sections/BundlesSection'
 import DiscoverSection from '@/components/sections/DiscoverSection'
 import BlogSection from '@/components/sections/BlogSection'
 import NewsletterSection from '@/components/sections/NewsletterSection'
 import ContactSection from '@/components/sections/ContactSection'
 import Footer from '@/components/Footer'
 import WhatsAppFAB from '@/components/WhatsAppFAB'
-import type { Tour, Profile, Post, DiscoverItem } from '@/lib/types/database'
+import type { Tour, Profile, Post, DiscoverItem, Bundle } from '@/lib/types/database'
 
 export const revalidate = 60 // Revalidate every 60 seconds
 
@@ -40,10 +41,19 @@ export default async function Home() {
     .order('created_at', { ascending: false })
     .limit(6)
 
+  // Fetch published bundles (first 6 for homepage)
+  const { data: bundles } = await supabase
+    .from('bundles')
+    .select('*')
+    .eq('is_published', true)
+    .order('created_at', { ascending: false })
+    .limit(6)
+
   const profileData = profile as Profile | null
   const toursData = (tours as Tour[]) || []
   const postsData = (posts as Post[]) || []
   const discoverData = (discoverItems as DiscoverItem[]) || []
+  const bundlesData = (bundles as Bundle[]) || []
 
   return (
     <main className="relative">
@@ -60,6 +70,7 @@ export default async function Home() {
         image={profileData?.about_image}
       />
       <ToursSection tours={toursData} />
+      <BundlesSection bundles={bundlesData} />
       <DiscoverSection items={discoverData} />
       <BlogSection posts={postsData} />
       <ContactSection

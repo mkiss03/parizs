@@ -66,18 +66,32 @@ export default function HeroSection({
           {subheadline}
         </motion.p>
 
-        <motion.a
-          href={ctaLink}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="group relative overflow-hidden rounded-full bg-gold-400 px-8 py-4 font-montserrat text-lg font-semibold text-navy-500 shadow-2xl transition-all duration-300 hover:bg-gold-500"
-        >
-          <span className="relative z-10">{ctaText}</span>
-          <div className="absolute inset-0 -z-0 bg-gradient-to-r from-gold-300 to-gold-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        </motion.a>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <motion.a
+            href={ctaLink}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative overflow-hidden rounded-full bg-gold-400 px-8 py-4 font-montserrat text-lg font-semibold text-navy-500 shadow-2xl transition-all duration-300 hover:bg-gold-500"
+          >
+            <span className="relative z-10">{ctaText}</span>
+            <div className="absolute inset-0 -z-0 bg-gradient-to-r from-gold-300 to-gold-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </motion.a>
+
+          <motion.a
+            href="/pricing"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative overflow-hidden rounded-full border-2 border-white bg-transparent px-8 py-4 font-montserrat text-lg font-semibold text-white shadow-2xl transition-all duration-300 hover:bg-white hover:text-french-blue-500"
+          >
+            <span className="relative z-10">Get City Pass</span>
+          </motion.a>
+        </div>
 
         {/* Scroll Indicator */}
         <motion.div
