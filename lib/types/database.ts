@@ -1,3 +1,5 @@
+export type UserRole = 'super_admin' | 'vendor' | 'customer'
+
 export interface Profile {
   id: string
   hero_title: string
@@ -10,6 +12,11 @@ export interface Profile {
   contact_email: string
   contact_phone: string
   contact_whatsapp: string
+  role: UserRole
+  is_approved: boolean
+  vendor_bio?: string
+  vendor_city?: string
+  commission_rate: number
   created_at: string
   updated_at: string
 }
@@ -73,4 +80,77 @@ export interface Subscriber {
   is_active: boolean
   unsubscribed_at?: string
   created_at: string
+}
+
+// ============================================
+// MARKETPLACE TYPES
+// ============================================
+
+export interface Bundle {
+  id: string
+  title: string
+  slug: string
+  description?: string
+  short_description?: string
+  cover_image?: string
+  price: number
+  city: string
+  category?: string
+  author_id: string
+  is_published: boolean
+  total_cards: number
+  total_sales: number
+  rating: number
+  created_at: string
+  updated_at: string
+}
+
+export interface Flashcard {
+  id: string
+  bundle_id: string
+  question: string
+  answer: string
+  hint?: string
+  image_url?: string
+  card_order: number
+  created_at: string
+  updated_at: string
+}
+
+export interface Order {
+  id: string
+  order_number: string
+  user_id: string
+  bundle_id: string
+  vendor_id: string
+  amount: number
+  commission_amount: number
+  vendor_amount: number
+  status: 'pending' | 'completed' | 'refunded'
+  payment_method: string
+  created_at: string
+}
+
+export interface UserPurchase {
+  id: string
+  user_id: string
+  bundle_id: string
+  order_id: string
+  purchased_at: string
+}
+
+export interface VendorStats {
+  total_bundles: number
+  published_bundles: number
+  total_sales: number
+  total_revenue: number
+  total_cards: number
+}
+
+export interface GlobalStats {
+  total_vendors: number
+  total_bundles: number
+  total_orders: number
+  total_revenue: number
+  total_commission: number
 }
