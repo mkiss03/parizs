@@ -25,8 +25,7 @@ export default function Navigation() {
   const navItems = [
     { name: 'Kezdőlap', href: '#' },
     { name: 'Rólam', href: '#about' },
-    { name: 'Túrák', href: '#tours' },
-    { name: 'Felfedezés', href: '/discover' },
+    { name: 'Városbérletek', href: '/pricing' },
     { name: 'Blog', href: '/blog' },
     { name: 'Kapcsolat', href: '#contact' },
   ]
@@ -49,7 +48,7 @@ export default function Navigation() {
               transition={{ duration: 0.5 }}
               className="font-playfair text-2xl font-bold text-parisian-grey-800 md:text-3xl"
             >
-              Viktória <span className="text-parisian-beige-500">Paris</span>
+              Szeidl <span className="text-parisian-beige-500">Viktória</span>
             </motion.a>
 
             {/* Desktop Navigation */}

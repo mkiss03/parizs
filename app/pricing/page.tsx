@@ -33,7 +33,7 @@ export default async function PricingPage() {
   )
 
   return (
-    <main className="relative min-h-screen bg-slate-50">
+    <main className="relative min-h-screen bg-parisian-cream-50">
       <Navigation />
       <PricingClient cities={citiesWithBundles as (CityPricing & { bundleCount: number })[]} />
       <Footer />
