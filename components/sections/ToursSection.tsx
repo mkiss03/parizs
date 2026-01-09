@@ -92,10 +92,10 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
   } as const
 
   return (
-    <section id="tours" className="relative overflow-hidden bg-champagne-200 py-20 md:py-32">
+    <section id="tours" className="relative overflow-hidden bg-parisian-cream-50 py-20 md:py-32">
       {/* Background Decoration */}
-      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-gold-400 opacity-10 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-burgundy-500 opacity-10 blur-3xl" />
+      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-parisian-beige-300 opacity-10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-parisian-beige-400 opacity-10 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Section Header */}
@@ -106,10 +106,10 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 font-playfair text-4xl font-bold text-navy-500 md:text-5xl lg:text-6xl">
+          <h2 className="mb-4 font-playfair text-4xl font-bold text-parisian-grey-800 md:text-5xl lg:text-6xl">
             Túrák & Programok
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-navy-400 md:text-xl">
+          <p className="mx-auto max-w-2xl text-lg text-parisian-grey-600 md:text-xl">
             Válasszon a gondosan összeállított túrák közül, és fedezze fel Párizst egy helyi szemével
           </p>
         </motion.div>
@@ -129,11 +129,11 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative overflow-hidden rounded-3xl transition-all duration-500"
             >
-              {/* Glassmorphism Card */}
-              <div className="glass-strong relative h-full overflow-hidden rounded-3xl p-6 shadow-xl transition-all duration-500 hover:shadow-2xl">
+              {/* Card */}
+              <div className="relative h-full overflow-hidden rounded-3xl border-2 border-parisian-beige-200 bg-white p-6 shadow-xl transition-all duration-500 hover:shadow-2xl hover:border-parisian-beige-300">
                 {/* Featured Badge */}
                 {tour.is_featured && (
-                  <div className="absolute right-4 top-4 z-10 rounded-full bg-gold-400 px-4 py-1 text-xs font-bold text-navy-500">
+                  <div className="absolute right-4 top-4 z-10 rounded-full bg-parisian-beige-400 px-4 py-1 text-xs font-bold text-white">
                     KIEMELT
                   </div>
                 )}
@@ -146,26 +146,26 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-500/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-parisian-grey-900/50 to-transparent" />
                 </div>
 
                 {/* Tour Content */}
-                <h3 className="mb-3 font-playfair text-2xl font-bold text-navy-500 md:text-3xl">
+                <h3 className="mb-3 font-playfair text-2xl font-bold text-parisian-grey-800 md:text-3xl">
                   {tour.title}
                 </h3>
-                <p className="mb-6 text-navy-400">{tour.short_description}</p>
+                <p className="mb-6 text-parisian-grey-600">{tour.short_description}</p>
 
                 {/* Tour Details */}
                 <div className="mb-6 flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 text-sm text-navy-400">
-                    <Clock className="h-5 w-5 text-gold-400" />
+                  <div className="flex items-center gap-2 text-sm text-parisian-grey-600">
+                    <Clock className="h-5 w-5 text-parisian-beige-500" />
                     <span>{tour.duration} óra</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-navy-400">
-                    <Users className="h-5 w-5 text-gold-400" />
+                  <div className="flex items-center gap-2 text-sm text-parisian-grey-600">
+                    <Users className="h-5 w-5 text-parisian-beige-500" />
                     <span>Max. {tour.max_group_size} fő</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-gold-500">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-parisian-beige-600">
                     <Euro className="h-5 w-5" />
                     <span>{tour.price} EUR</span>
                   </div>
@@ -175,7 +175,7 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group/btn flex w-full items-center justify-center gap-2 rounded-full bg-navy-500 px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-navy-600"
+                  className="group/btn flex w-full items-center justify-center gap-2 rounded-full bg-parisian-beige-400 px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-parisian-beige-500"
                 >
                   Részletek
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -193,17 +193,17 @@ export default function ToursSection({ tours = defaultTours }: ToursSectionProps
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="glass-strong mx-auto max-w-2xl rounded-3xl p-8">
-            <h3 className="mb-4 font-playfair text-2xl font-bold text-navy-500">
+          <div className="mx-auto max-w-2xl rounded-3xl border-2 border-parisian-beige-200 bg-white p-8 shadow-lg">
+            <h3 className="mb-4 font-playfair text-2xl font-bold text-parisian-grey-800">
               Egyedi túrára lenne szükséged?
             </h3>
-            <p className="mb-6 text-navy-400">
+            <p className="mb-6 text-parisian-grey-600">
               Állítsunk össze egy személyre szabott programot az Ön igényei szerint!
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="rounded-full bg-gold-400 px-8 py-3 font-semibold text-navy-500 transition-all duration-300 hover:bg-gold-500"
+              className="rounded-full bg-parisian-beige-400 px-8 py-3 font-semibold text-white transition-all duration-300 hover:bg-parisian-beige-500"
             >
               Egyedi ajánlat kérése
             </motion.button>

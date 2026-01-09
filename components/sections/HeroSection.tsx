@@ -38,7 +38,7 @@ export default function HeroSection({
         <div
           className="h-[120vh] w-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 33, 71, 0.3), rgba(0, 33, 71, 0.5)), url(${backgroundImage})`,
+            backgroundImage: `linear-gradient(rgba(51, 51, 51, 0.3), rgba(51, 51, 51, 0.5)), url(${backgroundImage})`,
           }}
         />
       </motion.div>
@@ -61,7 +61,7 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mb-12 max-w-2xl text-xl text-champagne-100 md:text-2xl"
+          className="mb-12 max-w-2xl text-xl text-white/90 md:text-2xl"
         >
           {subheadline}
         </motion.p>
@@ -74,10 +74,10 @@ export default function HeroSection({
             transition={{ duration: 0.8, delay: 0.8 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative overflow-hidden rounded-full bg-gold-400 px-8 py-4 font-montserrat text-lg font-semibold text-navy-500 shadow-2xl transition-all duration-300 hover:bg-gold-500"
+            className="group relative overflow-hidden rounded-full bg-parisian-beige-400 px-8 py-4 font-montserrat text-lg font-semibold text-white shadow-2xl transition-all duration-300 hover:bg-parisian-beige-500"
           >
             <span className="relative z-10">{ctaText}</span>
-            <div className="absolute inset-0 -z-0 bg-gradient-to-r from-gold-300 to-gold-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute inset-0 -z-0 bg-gradient-to-r from-parisian-beige-300 to-parisian-beige-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </motion.a>
 
           <motion.a
@@ -87,7 +87,7 @@ export default function HeroSection({
             transition={{ duration: 0.8, delay: 1.0 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative overflow-hidden rounded-full border-2 border-white bg-transparent px-8 py-4 font-montserrat text-lg font-semibold text-white shadow-2xl transition-all duration-300 hover:bg-white hover:text-french-blue-500"
+            className="group relative overflow-hidden rounded-full border-2 border-white bg-transparent px-8 py-4 font-montserrat text-lg font-semibold text-white shadow-2xl transition-all duration-300 hover:bg-white hover:text-parisian-grey-800"
           >
             <span className="relative z-10">Get City Pass</span>
           </motion.a>
@@ -110,7 +110,7 @@ export default function HeroSection({
       </motion.div>
 
       {/* Decorative overlay */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-32 bg-gradient-to-t from-champagne-300 to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-32 bg-gradient-to-t from-parisian-cream-50 to-transparent" />
     </section>
   )
 }

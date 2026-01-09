@@ -58,7 +58,7 @@ export default function AboutSection({
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-gradient-to-b from-champagne-300 to-champagne-100 py-20 md:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-white to-parisian-cream-50 py-20 md:py-32"
     >
       <div className="container mx-auto px-4">
         <div className="grid items-center gap-12 md:grid-cols-2 lg:gap-20">
@@ -81,19 +81,19 @@ export default function AboutSection({
                 className="object-cover"
               />
               {/* Decorative Frame */}
-              <div className="absolute inset-0 rounded-3xl border-4 border-gold-400 opacity-50" />
+              <div className="absolute inset-0 rounded-3xl border-4 border-parisian-beige-300 opacity-50" />
             </motion.div>
 
             {/* Floating Decorative Elements */}
             <motion.div
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gold-400 opacity-20 blur-2xl"
+              className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-parisian-beige-300 opacity-20 blur-2xl"
             />
             <motion.div
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-burgundy-500 opacity-20 blur-2xl"
+              className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-parisian-beige-400 opacity-20 blur-2xl"
             />
           </motion.div>
 
@@ -104,7 +104,7 @@ export default function AboutSection({
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="mb-6 font-playfair text-4xl font-bold text-navy-500 md:text-5xl lg:text-6xl"
+              className="mb-6 font-playfair text-4xl font-bold text-parisian-grey-800 md:text-5xl lg:text-6xl"
             >
               {title}
             </motion.h2>
@@ -114,7 +114,7 @@ export default function AboutSection({
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="mb-8 text-lg leading-relaxed text-navy-400 md:text-xl"
+              className="mb-8 text-lg leading-relaxed text-parisian-grey-600 md:text-xl"
             >
               {description}
             </motion.p>
@@ -131,13 +131,13 @@ export default function AboutSection({
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="glass rounded-2xl p-4 transition-all duration-300 hover:glass-strong"
+                    className="rounded-2xl border-2 border-parisian-beige-200 bg-white/60 p-4 backdrop-blur-sm transition-all duration-300 hover:border-parisian-beige-300 hover:bg-white"
                   >
-                    <Icon className="mb-2 h-8 w-8 text-gold-400" />
-                    <h4 className="mb-1 font-montserrat text-sm font-semibold text-navy-500">
+                    <Icon className="mb-2 h-8 w-8 text-parisian-beige-500" />
+                    <h4 className="mb-1 font-montserrat text-sm font-semibold text-parisian-grey-800">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-navy-400">{item.description}</p>
+                    <p className="text-xs text-parisian-grey-600">{item.description}</p>
                   </motion.div>
                 )
               })}

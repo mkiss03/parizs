@@ -42,10 +42,10 @@ export default function DiscoverSection({ items = [] }: DiscoverSectionProps) {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <h2 className="mb-4 font-playfair text-4xl font-bold text-french-blue-500 md:text-5xl lg:text-6xl">
+          <h2 className="mb-4 font-playfair text-4xl font-bold text-parisian-grey-800 md:text-5xl lg:text-6xl">
             Fedezze Fel Párizzsal
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-slate-600">
+          <p className="mx-auto max-w-2xl text-lg text-parisian-grey-600">
             Merüljön el a fények városának varázslatos világában - a gasztronómiától a művészetig
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export default function DiscoverSection({ items = [] }: DiscoverSectionProps) {
               <motion.div
                 key={discoverItem.id}
                 variants={item}
-                className={`group relative overflow-hidden rounded-3xl bg-slate-50 shadow-lg transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl ${gridClass}`}
+                className={`group relative overflow-hidden rounded-3xl border-2 border-parisian-beige-200 bg-white shadow-lg transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-parisian-beige-300 ${gridClass}`}
               >
                 <Link
                   href={discoverItem.link_url || '/discover'}
@@ -83,12 +83,12 @@ export default function DiscoverSection({ items = [] }: DiscoverSectionProps) {
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-french-blue-100 to-french-blue-200">
+                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-parisian-beige-100 to-parisian-beige-200">
                         <span className="text-4xl">📍</span>
                       </div>
                     )}
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-french-blue-500/90 via-french-blue-500/50 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-parisian-grey-900/90 via-parisian-grey-900/50 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
                   </div>
 
                   {/* Content */}
@@ -134,7 +134,7 @@ export default function DiscoverSection({ items = [] }: DiscoverSectionProps) {
         >
           <Link
             href="/discover"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-french-blue-500 px-8 py-4 font-semibold text-french-blue-500 transition-all hover:bg-french-blue-500 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-parisian-beige-400 px-8 py-4 font-semibold text-parisian-grey-700 transition-all hover:bg-parisian-beige-400 hover:text-white"
           >
             <span>Minden Felfedezés</span>
             <ArrowRight className="h-5 w-5" />
@@ -143,8 +143,8 @@ export default function DiscoverSection({ items = [] }: DiscoverSectionProps) {
       </div>
 
       {/* Decorative Elements */}
-      <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-french-blue-100 opacity-20 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-96 w-96 rounded-full bg-french-red-100 opacity-20 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-parisian-beige-200 opacity-20 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-96 w-96 rounded-full bg-parisian-beige-300 opacity-20 blur-3xl" />
     </section>
   )
 }

@@ -6,10 +6,10 @@ import { Mail, Sparkles } from 'lucide-react'
 
 export default function NewsletterSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-french-blue-500 via-french-blue-600 to-french-blue-700 py-20 md:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-parisian-beige-300 via-parisian-beige-400 to-parisian-beige-500 py-20 md:py-32">
       {/* Decorative Elements */}
-      <div className="pointer-events-none absolute left-0 top-0 h-96 w-96 rounded-full bg-white opacity-5 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-french-red-500 opacity-10 blur-3xl" />
+      <div className="pointer-events-none absolute left-0 top-0 h-96 w-96 rounded-full bg-white opacity-10 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-parisian-beige-600 opacity-20 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Icon & Title */}
@@ -25,7 +25,7 @@ export default function NewsletterSection() {
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, type: 'spring' }}
             viewport={{ once: true }}
-            className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm"
+            className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm"
           >
             <Mail className="h-10 w-10 text-white" />
           </motion.div>

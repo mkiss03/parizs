@@ -48,9 +48,9 @@ export default function ContactSection({
   ]
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-gradient-to-b from-champagne-100 to-champagne-300 py-20 md:py-32">
+    <section id="contact" className="relative overflow-hidden bg-gradient-to-b from-white to-parisian-cream-50 py-20 md:py-32">
       {/* Background Decoration */}
-      <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-400 opacity-5 blur-3xl" />
+      <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-parisian-beige-300 opacity-5 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Section Header */}
@@ -61,10 +61,10 @@ export default function ContactSection({
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 font-playfair text-4xl font-bold text-navy-500 md:text-5xl lg:text-6xl">
+          <h2 className="mb-4 font-playfair text-4xl font-bold text-parisian-grey-800 md:text-5xl lg:text-6xl">
             Lépjen kapcsolatba
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-navy-400 md:text-xl">
+          <p className="mx-auto max-w-2xl text-lg text-parisian-grey-600 md:text-xl">
             Készen áll felfedezni Párizst? Vegye fel velem a kapcsolatot, és tervezzük meg együtt az Ön álomtúráját!
           </p>
         </motion.div>
@@ -77,7 +77,7 @@ export default function ContactSection({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="mb-8 font-playfair text-3xl font-bold text-navy-500">
+            <h3 className="mb-8 font-playfair text-3xl font-bold text-parisian-grey-800">
               Elérhetőségek
             </h3>
 
@@ -93,14 +93,14 @@ export default function ContactSection({
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, x: 10 }}
-                    className="glass flex items-center gap-4 rounded-2xl p-6 transition-all duration-300 hover:glass-strong"
+                    className="flex items-center gap-4 rounded-2xl border-2 border-parisian-beige-200 bg-white p-6 transition-all duration-300 hover:border-parisian-beige-300 hover:shadow-md"
                   >
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gold-400">
-                      <Icon className="h-7 w-7 text-navy-500" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-parisian-beige-400">
+                      <Icon className="h-7 w-7 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-navy-400">{item.label}</p>
-                      <p className="text-lg font-bold text-navy-500">{item.value}</p>
+                      <p className="text-sm font-semibold text-parisian-grey-600">{item.label}</p>
+                      <p className="text-lg font-bold text-parisian-grey-800">{item.value}</p>
                     </div>
                   </motion.a>
                 )
@@ -113,12 +113,12 @@ export default function ContactSection({
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="mt-12 rounded-3xl border-l-4 border-gold-400 bg-white/50 p-6 backdrop-blur-sm"
+              className="mt-12 rounded-3xl border-l-4 border-parisian-beige-400 bg-parisian-cream-100/80 p-6 backdrop-blur-sm"
             >
-              <p className="italic text-navy-400">
+              <p className="italic text-parisian-grey-700">
                 &ldquo;Párizs mindig jó ötlet. Különösen akkor, ha egy tapasztalt idegenvezetővel fedezi fel.&rdquo;
               </p>
-              <p className="mt-2 font-semibold text-navy-500">- Viktória</p>
+              <p className="mt-2 font-semibold text-parisian-grey-800">- Viktória</p>
             </motion.div>
           </motion.div>
 
@@ -129,14 +129,14 @@ export default function ContactSection({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="glass-strong rounded-3xl p-8">
-              <h3 className="mb-6 font-playfair text-2xl font-bold text-navy-500">
+            <form onSubmit={handleSubmit} className="rounded-3xl border-2 border-parisian-beige-200 bg-white p-8 shadow-lg">
+              <h3 className="mb-6 font-playfair text-2xl font-bold text-parisian-grey-800">
                 Küldjön üzenetet
               </h3>
 
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="mb-2 block text-sm font-semibold text-navy-500">
+                  <label htmlFor="name" className="mb-2 block text-sm font-semibold text-parisian-grey-700">
                     Név
                   </label>
                   <input
@@ -144,13 +144,13 @@ export default function ContactSection({
                     id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full rounded-xl border-2 border-champagne-400 bg-white/50 px-4 py-3 backdrop-blur-sm transition-all duration-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+                    className="w-full rounded-xl border-2 border-parisian-beige-200 bg-white px-4 py-3 transition-all duration-300 focus:border-parisian-beige-400 focus:outline-none focus:ring-2 focus:ring-parisian-beige-400/20"
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-semibold text-navy-500">
+                  <label htmlFor="email" className="mb-2 block text-sm font-semibold text-parisian-grey-700">
                     Email
                   </label>
                   <input
@@ -158,13 +158,13 @@ export default function ContactSection({
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full rounded-xl border-2 border-champagne-400 bg-white/50 px-4 py-3 backdrop-blur-sm transition-all duration-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+                    className="w-full rounded-xl border-2 border-parisian-beige-200 bg-white px-4 py-3 transition-all duration-300 focus:border-parisian-beige-400 focus:outline-none focus:ring-2 focus:ring-parisian-beige-400/20"
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-sm font-semibold text-navy-500">
+                  <label htmlFor="message" className="mb-2 block text-sm font-semibold text-parisian-grey-700">
                     Üzenet
                   </label>
                   <textarea
@@ -172,7 +172,7 @@ export default function ContactSection({
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full resize-none rounded-xl border-2 border-champagne-400 bg-white/50 px-4 py-3 backdrop-blur-sm transition-all duration-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+                    className="w-full resize-none rounded-xl border-2 border-parisian-beige-200 bg-white px-4 py-3 transition-all duration-300 focus:border-parisian-beige-400 focus:outline-none focus:ring-2 focus:ring-parisian-beige-400/20"
                     required
                   />
                 </div>
@@ -181,7 +181,7 @@ export default function ContactSection({
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-navy-500 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-navy-600"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-parisian-beige-400 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-parisian-beige-500"
                 >
                   Üzenet küldése
                   <Send className="h-5 w-5" />
