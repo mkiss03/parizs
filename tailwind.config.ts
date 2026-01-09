@@ -9,7 +9,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // French Tricolor Modern Palette
+        // Parisian Nude Palette - Elegant Beige/Cream Theme
+        parisian: {
+          beige: {
+            50: '#FAF7F4',    // Lightest beige (almost white)
+            100: '#F3E5D8',   // Powder beige (primary)
+            200: '#E6D0B3',   // Warm beige
+            300: '#D9BB8E',   // Medium beige
+            400: '#CCA669',   // Darker beige
+            500: '#BF9144',   // Deep beige/tan
+            600: '#997436',   // Brown-beige
+            700: '#735728',   // Dark tan
+            800: '#4D3A1B',   // Deep brown
+            900: '#261D0D',   // Almost black brown
+          },
+          cream: {
+            50: '#FFFEFB',    // Pure white with warmth
+            100: '#FFF9F0',   // Soft cream
+            200: '#FFF3E1',   // Cream
+            300: '#FFEDD2',   // Light cream
+          },
+          grey: {
+            50: '#F9F9F9',    // Almost white
+            100: '#EFEFEF',   // Light grey
+            200: '#E0E0E0',   // Medium light grey
+            300: '#CCCCCC',   // Medium grey
+            400: '#999999',   // Grey
+            500: '#666666',   // Dark grey
+            600: '#4D4D4D',   // Darker grey
+            700: '#333333',   // Text grey (primary text)
+            800: '#1A1A1A',   // Almost black
+            900: '#0D0D0D',   // Pure black
+          },
+        },
+        // Legacy French Tricolor (keeping for backwards compatibility)
         french: {
           blue: {
             50: '#E6EEF9',
@@ -17,7 +50,7 @@ const config: Config = {
             200: '#99BBE7',
             300: '#6699DB',
             400: '#3377CF',
-            500: '#002395', // Deep French Blue
+            500: '#002395',
             600: '#001C77',
             700: '#001559',
             800: '#000E3B',
@@ -29,14 +62,14 @@ const config: Config = {
             200: '#FDC5C5',
             300: '#FCA8A8',
             400: '#FB8B8B',
-            500: '#ED2939', // Elegant French Red
+            500: '#ED2939',
             600: '#BE212E',
             700: '#8E1922',
             800: '#5F1117',
             900: '#2F080B',
           },
         },
-        // Neutral grays for clean, magazine-style layout
+        // Neutral grays
         slate: {
           50: '#F8FAFC',
           100: '#F1F5F9',

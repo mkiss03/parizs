@@ -13,24 +13,24 @@ export default function BundlesSection({ bundles }: BundlesSectionProps) {
   if (!bundles || bundles.length === 0) return null
 
   return (
-    <section id="bundles" className="py-24 bg-white">
+    <section id="bundles" className="bg-parisian-cream-50 py-24">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="mb-4 font-playfair text-4xl font-bold text-french-blue-500 md:text-5xl">
+          <h2 className="mb-4 font-playfair text-4xl font-bold text-parisian-grey-800 md:text-5xl">
             City Guide Flashcards
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-slate-600">
+          <p className="mx-auto max-w-2xl text-lg text-parisian-grey-600">
             Master any city with our interactive flashcard bundles. Learn local phrases, metro routes, cultural tips, and more!
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-french-blue-50 px-6 py-3 text-sm font-semibold text-french-blue-600">
+          <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-parisian-beige-100 px-6 py-3 text-sm font-semibold text-parisian-grey-700">
             <Lock className="h-4 w-4" />
             Unlock full city access with a City Pass
           </div>
         </div>
 
-        {/* Bundles Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Bundles Grid - Responsive */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {bundles.map((bundle) => (
             <BundleCard key={bundle.id} bundle={bundle} />
           ))}
@@ -40,7 +40,7 @@ export default function BundlesSection({ bundles }: BundlesSectionProps) {
         <div className="mt-16 text-center">
           <Link
             href="/pricing"
-            className="inline-block rounded-full bg-french-red-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-french-red-600 hover:shadow-xl"
+            className="inline-block rounded-full bg-parisian-beige-400 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-parisian-beige-500 hover:shadow-xl"
           >
             View City Passes & Pricing
           </Link>
@@ -57,9 +57,9 @@ function BundleCard({ bundle }: { bundle: Bundle }) {
 
   return (
     <Link href={`/bundles/${bundle.slug}`}>
-      <div className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md transition-all hover:shadow-xl">
+      <div className="group relative h-full overflow-hidden rounded-2xl border-2 border-parisian-beige-200 bg-white shadow-md transition-all hover:shadow-xl hover:border-parisian-beige-300">
         {/* Cover Image with Lock Overlay */}
-        <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+        <div className="relative h-48 w-full overflow-hidden bg-parisian-beige-50">
           <Image
             src={bundle.cover_image || '/images/bundle-fallback.jpg'}
             alt={bundle.title}
@@ -69,9 +69,11 @@ function BundleCard({ bundle }: { bundle: Bundle }) {
 
           {/* Lock Overlay */}
           {!hasAccess && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+            <div className="absolute inset-0 flex items-center justify-center bg-parisian-grey-900/30 backdrop-blur-[2px]">
               <div className="flex flex-col items-center gap-2 text-white">
-                <Lock className="h-8 w-8" />
+                <div className="rounded-full bg-parisian-grey-800/90 p-3">
+                  <Lock className="h-6 w-6" />
+                </div>
                 <span className="text-sm font-semibold">City Pass Required</span>
               </div>
             </div>
@@ -79,21 +81,21 @@ function BundleCard({ bundle }: { bundle: Bundle }) {
         </div>
 
         {/* Content */}
-        <div className="p-5">
+        <div className="p-6">
           {/* Title */}
-          <h3 className="mb-2 font-playfair text-xl font-bold text-french-blue-500 transition-colors group-hover:text-french-red-500">
+          <h3 className="mb-2 font-playfair text-xl font-bold text-parisian-grey-800 transition-colors group-hover:text-parisian-beige-600">
             {bundle.title}
           </h3>
 
           {/* Description */}
           {bundle.short_description && (
-            <p className="mb-4 line-clamp-2 text-sm text-slate-600">
+            <p className="mb-4 line-clamp-2 text-sm text-parisian-grey-600">
               {bundle.short_description}
             </p>
           )}
 
           {/* Meta Info */}
-          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
+          <div className="flex flex-wrap items-center gap-3 text-xs text-parisian-grey-500">
             <span className="flex items-center gap-1">
               <MapPin className="h-3.5 w-3.5" />
               {bundle.city}
@@ -112,14 +114,14 @@ function BundleCard({ bundle }: { bundle: Bundle }) {
 
           {/* Difficulty Badge */}
           {bundle.difficulty_level && (
-            <div className="mt-3">
+            <div className="mt-4">
               <span
-                className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
+                className={`inline-block rounded-full px-4 py-1.5 text-xs font-semibold ${
                   bundle.difficulty_level === 'beginner'
-                    ? 'bg-green-100 text-green-700'
+                    ? 'bg-parisian-beige-100 text-parisian-grey-700'
                     : bundle.difficulty_level === 'intermediate'
-                    ? 'bg-yellow-100 text-yellow-700'
-                    : 'bg-red-100 text-red-700'
+                    ? 'bg-parisian-beige-200 text-parisian-grey-700'
+                    : 'bg-parisian-beige-300 text-white'
                 }`}
               >
                 {bundle.difficulty_level === 'beginner' && 'Beginner'}
@@ -131,7 +133,7 @@ function BundleCard({ bundle }: { bundle: Bundle }) {
 
           {/* Category */}
           {bundle.category && (
-            <div className="mt-2 text-xs font-medium uppercase tracking-wide text-french-blue-400">
+            <div className="mt-3 text-xs font-medium uppercase tracking-wide text-parisian-beige-600">
               {bundle.category}
             </div>
           )}

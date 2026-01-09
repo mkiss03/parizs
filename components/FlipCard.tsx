@@ -34,7 +34,7 @@ export default function FlipCard({ flashcard, isLocked = false }: FlipCardProps)
       >
         {/* Front Side - Question */}
         <div
-          className="backface-hidden absolute inset-0 flex flex-col rounded-3xl border-2 border-french-blue-200 bg-white p-8 shadow-2xl"
+          className="backface-hidden absolute inset-0 flex flex-col rounded-3xl border-2 border-parisian-beige-200 bg-white p-8 shadow-2xl"
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
@@ -42,7 +42,7 @@ export default function FlipCard({ flashcard, isLocked = false }: FlipCardProps)
         >
           {/* Locked Overlay */}
           {isLocked && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center rounded-3xl bg-slate-900/80 backdrop-blur-sm">
+            <div className="absolute inset-0 z-10 flex items-center justify-center rounded-3xl bg-parisian-grey-900/80 backdrop-blur-sm">
               <div className="text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
                   <svg
@@ -66,27 +66,27 @@ export default function FlipCard({ flashcard, isLocked = false }: FlipCardProps)
           )}
 
           {/* Card Number Badge */}
-          <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-french-blue-500 text-sm font-bold text-white shadow-lg">
+          <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-parisian-beige-400 text-sm font-bold text-white shadow-lg">
             {flashcard.card_order + 1}
           </div>
 
           {/* Question Label */}
           <div className="mb-4">
-            <span className="inline-block rounded-full bg-french-blue-100 px-4 py-1 text-sm font-semibold text-french-blue-600">
+            <span className="inline-block rounded-full bg-parisian-beige-100 px-4 py-1 text-sm font-semibold text-parisian-grey-700">
               Question
             </span>
           </div>
 
           {/* Question Content */}
           <div className="flex flex-1 items-center justify-center">
-            <h3 className="text-center font-playfair text-2xl font-bold text-french-blue-500 md:text-3xl">
+            <h3 className="text-center font-playfair text-2xl font-bold text-parisian-grey-800 md:text-3xl">
               {isLocked ? '???' : flashcard.question}
             </h3>
           </div>
 
           {/* Image if exists */}
           {!isLocked && flashcard.image_url && (
-            <div className="relative mt-4 h-32 w-full overflow-hidden rounded-xl">
+            <div className="relative mt-4 h-32 w-full overflow-hidden rounded-2xl">
               <Image
                 src={flashcard.image_url}
                 alt="Card illustration"
@@ -103,7 +103,7 @@ export default function FlipCard({ flashcard, isLocked = false }: FlipCardProps)
                 e.stopPropagation()
                 setShowHint(!showHint)
               }}
-              className="mt-4 flex items-center gap-2 self-center rounded-full bg-yellow-100 px-4 py-2 text-sm text-yellow-700 transition-all hover:bg-yellow-200"
+              className="mt-4 flex items-center gap-2 self-center rounded-full bg-parisian-beige-100 px-4 py-2 text-sm text-parisian-grey-700 transition-all hover:bg-parisian-beige-200"
             >
               <Lightbulb className="h-4 w-4" />
               {showHint ? flashcard.hint : 'Show Hint'}
@@ -111,7 +111,7 @@ export default function FlipCard({ flashcard, isLocked = false }: FlipCardProps)
           )}
 
           {/* Flip Indicator */}
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-400">
+          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-parisian-grey-400">
             <RotateCw className="h-4 w-4" />
             <span>Click to flip</span>
           </div>
@@ -119,7 +119,7 @@ export default function FlipCard({ flashcard, isLocked = false }: FlipCardProps)
 
         {/* Back Side - Answer */}
         <div
-          className="backface-hidden absolute inset-0 flex flex-col rounded-3xl border-2 border-french-red-200 bg-gradient-to-br from-french-red-50 to-french-red-100 p-8 shadow-2xl"
+          className="backface-hidden absolute inset-0 flex flex-col rounded-3xl border-2 border-parisian-beige-300 bg-gradient-to-br from-parisian-beige-100 to-parisian-beige-200 p-8 shadow-2xl"
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
@@ -128,20 +128,20 @@ export default function FlipCard({ flashcard, isLocked = false }: FlipCardProps)
         >
           {/* Answer Label */}
           <div className="mb-4">
-            <span className="inline-block rounded-full bg-french-red-500 px-4 py-1 text-sm font-semibold text-white">
+            <span className="inline-block rounded-full bg-parisian-beige-400 px-4 py-1 text-sm font-semibold text-white">
               Answer
             </span>
           </div>
 
           {/* Answer Content */}
           <div className="flex flex-1 items-center justify-center">
-            <p className="text-center text-xl leading-relaxed text-slate-700 md:text-2xl">
+            <p className="text-center text-xl leading-relaxed text-parisian-grey-700 md:text-2xl">
               {flashcard.answer}
             </p>
           </div>
 
           {/* Flip Back Indicator */}
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500">
+          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-parisian-grey-500">
             <RotateCw className="h-4 w-4" />
             <span>Click to flip back</span>
           </div>
